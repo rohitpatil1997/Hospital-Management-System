@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Hospital.Models.PatientModel>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>PatientAdd</title>
+    <script>function fun() {
+            alert("Invoked by Button");
+        }</script>
+</head>
+<body>
+    <form action="/Patient/Submit" method="post">
+        Patient Name: <input type="text" name="name" value="" /><br /><br />
+        Patient Problem: <input type="text" name="problemDescription" value="" /><br /><br />
+        <input type="submit" value="submit" />
+    </form><br /><br /><br />
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>Description</td>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.name</td>
+                <td>@item.problemDescription</td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
