@@ -1,13 +1,17 @@
 
-
+Patient Id : <input type="text" [(ngModel)]="patientObj.id" value="" /><br /><br />
 Patient Name : <input type="text" [(ngModel)]="patientObj.name" value="" /><br /><br />
 Patient Problem : <input type="text" [(ngModel)]="patientObj.problemDescription" value="" /><br />
 <input type="submit" (click)="Submit()" value="Add Patient" /><br />
 <br /><br />
 
-<!-- <table>
+<table>
     <tr>
         <td>Name</td>
         <td>Description</td>
     </tr>
-</table> -->
+    <tr *ngFor="let pat of patientObjs">
+        <td>{{[pat.name]}}</td>
+        <td>{{[pat.problemDescription]}}</td>
+    </tr>
+</table>
