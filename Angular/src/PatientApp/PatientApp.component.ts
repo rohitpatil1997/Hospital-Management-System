@@ -9,12 +9,13 @@ import {PatientModel} from './PatientApp.Model';
 })
 export class PatientComponent {
   title='PatientMangement';
- 
 
+  patientObj:PatientModel=null;
+ patientObjs:Array<PatientModel> = new Array<PatientModel>();
   constructor(public Http:HttpClient){
     this.patientObj=new PatientModel();
   }
-  patientObj:PatientModel=null;
+ 
 
 
   Submit(){
@@ -32,10 +33,13 @@ export class PatientComponent {
  */
   }
     Success(res){
-      alert("Data Stored");
+      
+      this.patientObjs = res; // set the Collection
+      this.patientObj = new PatientModel();
 
     }
     Error(res){
+      alert(res);
 
     }
  
