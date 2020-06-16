@@ -14,7 +14,7 @@ namespace Hospital
 {
     public class Startup
     {
-        readonly string MyAllowSpecificationOrigins = "_myAllowSpecificationOrigins";
+        readonly string AllowSpecificOrigins = "_AllowSpecificOrigins";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -33,7 +33,7 @@ namespace Hospital
             });
 
             services.AddCors(options =>
-                    options.AddPolicy("MyAllowSpecificOrigins",
+                    options.AddPolicy("AllowSpecificOrigins",
                     builder =>
                     {
                         builder.AllowAnyOrigin()
@@ -76,7 +76,7 @@ namespace Hospital
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-            app.UseCors("MyAllowMySpecificOrigins");
+            app.UseCors("AllowSpecificOrigins");
 
             app.UseMvc(routes =>
             {
