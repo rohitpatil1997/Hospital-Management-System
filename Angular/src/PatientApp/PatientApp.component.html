@@ -1,10 +1,12 @@
+<form [formGroup] = "patientObj.formPatientGroup">
 
-Patient Id : <input type="text" [(ngModel)]="patientObj.id" value="" /><br /><br />
-Patient Name : <input type="text" [(ngModel)]="patientObj.name" value="" /><br /><br />
-Patient Problem : <input type="text" [(ngModel)]="patientObj.problemDescription" value="" /><br />
-<input type="submit" (click)="Submit()" value="Add Patient" /><br />
+    Patient Id : <input  [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="patientObj.id" value="" /><br /><br />
+    Patient Name : <input formControlName="namecontrol" type="text" [(ngModel)]="patientObj.name" value="" /><br /><br />
+    Patient Problem : <input formControlName="problemdescriptioncontrol" type="text" [(ngModel)]="patientObj.problemDescription" value="" /><br />
+    <input [disabled]="!(patientObj.formPatientGroup.valid)" type="submit" (click)="Submit()" value="Add Patient" /><br />
 <br /><br />
 
+</form>
 <table>
     <tr>
         <td>Name</td>
