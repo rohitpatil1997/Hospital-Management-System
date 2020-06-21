@@ -1,0 +1,14 @@
+Enter Patient Name : <input type="text" [(ngModel)]="patientName" id="" /><br />
+<input type="button" (click)=search() value="Search" />  
+<br />
+
+<table>
+    <tr>
+        <td>Name</td>
+        <td>Description</td>
+    </tr>
+    <tr *ngFor="let pat of patientModels">
+        <td>{{[pat.name]}}</td>
+        <td>{{[pat.problemDescription]}}</td>
+    </tr>
+</table>

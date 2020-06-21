@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import {  HttpHeaders, HttpClient} from '@angular/common/http';
 import {PatientModel} from './PatientApp.Model';
+import { parseTemplate } from '@angular/compiler';
 
 @Component({
-  selector: 'app-root',
+ 
   templateUrl: './PatientApp.component.html',
   
 })
@@ -23,8 +24,11 @@ export class PatientComponent {
       name:this.patientObj.name,
       problemDescription:this.patientObj.problemDescription
     } */
-
-    this.Http.post("https://localhost:5001/Patient/Submit", this.patientObj)
+      var patDto:any = {};
+      patDto.id = this.patientObj.id;
+      patDto.name = this.patientObj.name;
+      patDto.problemDescription = this.patientObj.problemDescription;
+    this.Http.post("https://localhost:5001/Patient/Submit", patDto)
     .subscribe( 
       res=>this.Success(res),
       res=>this.Error(res)
