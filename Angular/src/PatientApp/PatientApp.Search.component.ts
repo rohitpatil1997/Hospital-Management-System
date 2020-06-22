@@ -18,7 +18,7 @@ export class PatientSearchComponent {
       
   }
   search(){
-    this.http.get("https://localhost:5001/Patient/Search?patientName=" + this.patientName)
+    this.http.get("https://localhost:5001/api/PatientAPI?patientName=" + this.patientName)
     .subscribe(res=>this.success(res), res=>this.error(res));
       
 

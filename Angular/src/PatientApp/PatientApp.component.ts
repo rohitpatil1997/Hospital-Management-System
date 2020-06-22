@@ -28,7 +28,7 @@ export class PatientComponent {
       patDto.id = this.patientObj.id;
       patDto.name = this.patientObj.name;
       patDto.problemDescription = this.patientObj.problemDescription;
-    this.Http.post("https://localhost:5001/Patient/Submit", patDto)
+    this.Http.post("https://localhost:5001/api/PatientAPI", patDto)
     .subscribe( 
       res=>this.Success(res),
       res=>this.Error(res)
