@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {  HttpHeaders, HttpClient} from '@angular/common/http';
-import { PatientModel } from './PatientApp.Model';
+import { PatientModel } from '../PatientEdit/PatientApp.Model';
 
 
 @Component({
@@ -29,6 +29,7 @@ export class PatientSearchComponent {
 
   }
   error(res){
+    
 
   }
 

@@ -4,20 +4,19 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { HttpClientModule } from '@angular/common/http';
 
-import { PatientComponent } from './PatientApp.component';
+
 import { HomePageComponent } from './PatientHomePage.component';
 import { MasterPageComponent } from './PatientMasterPage.component';
-import { PatientRoutes } from '../Routing/PatientRouting';
+import { PatientRoutes } from './PatientRouting';
 
 import { from } from 'rxjs';
-import { PatientSearchComponent } from './PatientApp.Search.component';
+
 
 @NgModule({
   declarations: [
-    PatientComponent,
+   
     MasterPageComponent,
-    HomePageComponent,
-    PatientSearchComponent
+    HomePageComponent
   ],
   imports: [
     RouterModule.forRoot(PatientRoutes),
@@ -29,4 +28,4 @@ import { PatientSearchComponent } from './PatientApp.Search.component';
   providers: [],
   bootstrap: [MasterPageComponent]
 })
-export class PatientAppModule { }
+export class PatientHomeModule { }
