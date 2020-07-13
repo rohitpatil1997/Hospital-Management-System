@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { PatientComponent } from './PatientApp.component';
 
@@ -12,6 +12,7 @@ import { PatientComponent } from './PatientApp.component';
 import { from } from 'rxjs';
 import { PatientEditRoutes } from './PatientEditRouting';
 import { CommonModule } from '@angular/common';
+import { MyJWTInterceptor } from 'src/Utilities/Utility.Interceptor';
 
 
 @NgModule({
@@ -26,7 +27,10 @@ import { CommonModule } from '@angular/common';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+
+    {provide: HTTP_INTERCEPTORS, useClass: MyJWTInterceptor , multi:true}
+  ],
   bootstrap: [PatientComponent]
 })
 export class PatientHomeModule { }
